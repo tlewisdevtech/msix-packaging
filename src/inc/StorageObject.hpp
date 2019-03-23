@@ -33,13 +33,7 @@ inline constexpr FileNameOptions operator |(FileNameOptions a, FileNameOptions b
 
 // internal interface
 // {ec25b96e-0db1-4483-bdb1-cab1109cb741}
-#ifndef WIN32
 interface IStorageObject : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IStorageObject : public IUnknown
-#endif
 {
 public:        
     virtual const char* GetPathSeparator() = 0;

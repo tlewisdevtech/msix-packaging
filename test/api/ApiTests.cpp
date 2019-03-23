@@ -87,7 +87,7 @@ protected:
             if (utf16Path[i] == L'\\')
             {
                 utf16Path[i] = L'\0';
-                if (!CreateDirectory(utf16Path.c_str(), nullptr))
+                if (!CreateDirectoryW(utf16Path.c_str(), nullptr))
                 {
                     int lastError = static_cast<int>(GetLastError());
                     if (lastError != ERROR_ALREADY_EXISTS)
@@ -99,7 +99,7 @@ protected:
             }
         }
         // Create last directory
-        if (!CreateDirectory(utf16Path.c_str(), nullptr))
+        if (!CreateDirectoryW(utf16Path.c_str(), nullptr))
         {
             int lastError = static_cast<int>(GetLastError());
             if (lastError != ERROR_ALREADY_EXISTS)

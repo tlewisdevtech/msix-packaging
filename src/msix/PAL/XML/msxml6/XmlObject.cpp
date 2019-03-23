@@ -22,20 +22,18 @@
 
 #include <msxml6.h>
 
-#include "Unknwn.h"
-#include "Objidl.h"
-// {2730f595-0c80-4f3e-8891-753b2e8c305d}
-class IMSXMLElement : public IUnknown
 // An internal interface for XML document object model
+// {2730f595-0c80-4f3e-8891-753b2e8c305d}
+interface IMSXMLElement : public IUnknown
 {
 public:
     virtual MSIX::ComPtr<IXMLDOMNodeList> SelectNodes(XmlQueryName query) = 0;
 };
 MSIX_INTERFACE(IMSXMLElement, 0x2730f595,0x0c80,0x4f3e,0x88,0x91,0x75,0x3b,0x2e,0x8c,0x30,0x5d);
 
-// {b6bca5f0-c6c1-4409-85be-e476aabec19a}
-class IMSXMLDom : public IUnknown
 // An internal interface for XML document object model
+// {b6bca5f0-c6c1-4409-85be-e476aabec19a}
+interface IMSXMLDom : public IUnknown
 {
 public:
     virtual MSIX::ComPtr<IXMLDOMDocument> GetDomDocument() = 0;

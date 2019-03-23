@@ -10,16 +10,9 @@
 #include "StreamBase.hpp"
 #include "ComHelper.hpp"
 
-// internal interface
-// {cb0a105c-3a6c-4e48-9351-377c4dccd890}
-#ifndef WIN32
-interface IVerifierObject : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IVerifierObject : public IUnknown
-#endif
 // An internal interface for objects that are used to verify structured data represented by an underlying stream.
+// {cb0a105c-3a6c-4e48-9351-377c4dccd890}
+interface IVerifierObject : public IUnknown
 {
 public:
     virtual const std::string& GetPublisher() = 0;

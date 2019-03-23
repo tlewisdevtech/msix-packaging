@@ -30,13 +30,7 @@ XERCES_CPP_NAMESPACE_USE
 
 // An internal interface for XML document object model
 // {07d6ee0e-2165-4b90-8024-e176291e77dd}
-#ifndef WIN32
 interface IXercesElement : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IXercesElement : public IUnknown
-#endif
 {
 public:
     virtual DOMElement* GetElement() = 0;

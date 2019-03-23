@@ -3,14 +3,16 @@
 //  See LICENSE file in the project root for full license information.
 //
 // This header defines the types used by Windows that are not defined in other platforms
-#ifndef __appxwindows_hpp__
-#define __appxwindows_hpp__
+#pragma once
 
 #include <cstdint>
 #include <string>
 #include <cstring>
 
 #ifdef WIN32
+    #include "Unknwn.h"
+    #include "Objidl.h"
+
     #define STDMETHODCALLTYPE __stdcall
     #define MSIX_API extern "C" __declspec(dllexport)
     #define DECLSPEC_SELECTANY __declspec(selectany)
@@ -302,5 +304,3 @@
     #endif  // _SYS_GUID_OPERATOR_EQ_
     #endif  // _SYS_GUID_OPERATORS_
 #endif // #else of #ifdef WIN32
-
-#endif //__appxwindows_hpp__

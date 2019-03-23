@@ -10,13 +10,7 @@
 
 // internal interface
 // {1f850db4-32b8-4db6-8bf4-5a897eb611f1}
-#ifndef WIN32
 interface IMsixFactory : public IUnknown
-#else
-#include "UnKnwn.h"
-#include "Objidl.h"
-class IMsixFactory : public IUnknown
-#endif
 {
 public:
     virtual HRESULT MarshalOutString(std::string& internal, LPWSTR* result) = 0;

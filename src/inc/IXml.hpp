@@ -136,15 +136,9 @@ static const char* xPaths[] = {
 };
 #endif
 
-// {ac94449e-442d-4bed-8fca-83770c0f7ee9}
-#ifndef WIN32
-interface IXmlElement : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IXmlElement : public IUnknown
-#endif
 // An internal interface for XML elements
+// {ac94449e-442d-4bed-8fca-83770c0f7ee9}
+interface IXmlElement : public IUnknown
 {
 public:
     virtual std::string               GetAttributeValue(XmlAttributeName attribute) = 0;
@@ -163,13 +157,9 @@ struct XmlVisitor
     XmlVisitor(void* c, lambda f) : context(c), Callback(f) {}
 };
 
-// {0e7a446e-baf7-44c1-b38a-216bfa18a1a8}
-#ifndef WIN32
-interface IXmlDom : public IUnknown
-#else
-class IXmlDom : public IUnknown
-#endif
 // An internal interface for XML document object model
+// {0e7a446e-baf7-44c1-b38a-216bfa18a1a8}
+interface IXmlDom : public IUnknown
 {
 public:
     virtual MSIX::ComPtr<IXmlElement> GetDocument() = 0;
@@ -181,13 +171,9 @@ public:
 };
 MSIX_INTERFACE(IXmlDom, 0x0e7a446e,0xbaf7,0x44c1,0xb3,0x8a,0x21,0x6b,0xfa,0x18,0xa1,0xa8);
 
-// {f82a60ec-fbfc-4cb9-bc04-1a0fe2b4d5be}
-#ifndef WIN32
-interface IXmlFactory : public IUnknown
-#else
-class IXmlFactory : public IUnknown
-#endif
 // An internal interface for creating an IXmlDom object as well as managing XML services lifetime
+// {f82a60ec-fbfc-4cb9-bc04-1a0fe2b4d5be}
+interface IXmlFactory : public IUnknown
 {
 public:
     virtual MSIX::ComPtr<IXmlDom> CreateDomFromStream(XmlContentType footPrintType, const MSIX::ComPtr<IStream>& stream) = 0;

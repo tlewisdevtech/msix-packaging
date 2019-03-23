@@ -13,13 +13,7 @@
 #include "VerifierObject.hpp"
 
 // {ff82ffcd-747a-4df9-8879-853ab9dd15a1}
-#ifndef WIN32
 interface IBundleInfo : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IBundleInfo : public IUnknown
-#endif
 {
 public:
     virtual std::vector<MSIX::ComPtr<IAppxBundleManifestPackageInfo>>& GetPackages() = 0;
@@ -27,13 +21,7 @@ public:
 MSIX_INTERFACE(IBundleInfo, 0xff82ffcd,0x747a,0x4df9,0x88,0x79,0x85,0x3a,0xb9,0xdd,0x15,0xa1);
 
 // {32e6fcf0-729b-401d-9dbc-f927b494f9af}
-#ifndef WIN32
 interface IAppxBundleManifestPackageInfoInternal : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IAppxBundleManifestPackageInfoInternal : public IUnknown
-#endif
 {
 public:
     virtual const std::string& GetFileName() = 0;

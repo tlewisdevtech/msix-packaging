@@ -12,13 +12,7 @@
 #include <memory>
 
 // {76b7d3e1-768a-45cb-9626-ba6452bed2de}
-#ifndef WIN32
 interface IAppxManifestPackageIdInternal : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IAppxManifestPackageIdInternal : public IUnknown
-#endif
 {
 public:
     virtual const std::string& GetPublisherId() = 0;

@@ -19,13 +19,7 @@
 #include "UnicodeConversion.hpp"
 
 // {eff6d561-a236-4058-9f1d-8f93633fba4b}
-#ifndef WIN32
 interface IAppxManifestObject : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IAppxManifestObject : public IUnknown
-#endif
 {
 public:
     virtual const MSIX_PLATFORMS GetPlatform() = 0;

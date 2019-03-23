@@ -26,13 +26,7 @@
 
 // internal interface
 // {51b2c456-aaa9-46d6-8ec9-298220559189}
-#ifndef WIN32
 interface IPackage : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IPackage : public IUnknown
-#endif
 {
 public:
     virtual void Unpack(MSIX_PACKUNPACK_OPTION options, const MSIX::ComPtr<IStorageObject>& to) = 0;

@@ -2,7 +2,8 @@
 //  Copyright (C) 2017 Microsoft.  All rights reserved.
 //  See LICENSE file in the project root for full license information.
 // 
-// ONLY build on platforms other than Win32
+#include "MSIXWindows.hpp"
+#include "UnicodeConversion.hpp"
 #include "Exceptions.hpp"
 #include "DirectoryObject.hpp"
 #include "FileStream.hpp"
@@ -13,8 +14,6 @@
 #include <sstream>
 #include <locale>
 #include <codecvt>
-#include "MSIXWindows.hpp"
-#include "UnicodeConversion.hpp"
 
 namespace MSIX {
     enum class WalkOptions : std::uint16_t
@@ -42,9 +41,9 @@ namespace MSIX {
 
         std::wstring utf16Name = utf8_to_wstring(root);
 
-        WIN32_FIND_DATA findFileData = {};
+        WIN32_FIND_DATAW findFileData = {};
         std::unique_ptr<std::remove_pointer<HANDLE>::type, decltype(&::FindClose)> find(
-            FindFirstFile(reinterpret_cast<LPCWSTR>(utf16Name.c_str()), &findFileData),
+            FindFirstFileW(reinterpret_cast<LPCWSTR>(utf16Name.c_str()), &findFileData),
             &FindClose);
 
         if (INVALID_HANDLE_VALUE == find.get())
@@ -87,7 +86,7 @@ namespace MSIX {
                 }
             }
         }
-        while (FindNextFile(find.get(), &findFileData));
+        while (FindNextFileW(find.get(), &findFileData));
 
         std::uint32_t lastError = static_cast<std::uint32_t>(GetLastError());
         ThrowWin32ErrorIfNot(lastError,
@@ -152,7 +151,7 @@ namespace MSIX {
             if(!found)
             {
                 std::wstring utf16Name = utf8_to_wstring(path);
-                if (!CreateDirectory(utf16Name.c_str(), nullptr))
+                if (!CreateDirectoryW(utf16Name.c_str(), nullptr))
                 {
                     auto lastError = GetLastError();
                     ThrowWin32ErrorIfNot(lastError, (lastError == ERROR_ALREADY_EXISTS), "CreateDirectory");

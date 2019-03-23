@@ -437,7 +437,7 @@ protected:
                 // to obtain name of the subdirectory to create
                 utf16Path[i] = L'\0';
 
-                if (!CreateDirectory(utf16Path.c_str(), nullptr))
+                if (!CreateDirectoryW(utf16Path.c_str(), nullptr))
                 {
                     int lastError = static_cast<int>(GetLastError());
 

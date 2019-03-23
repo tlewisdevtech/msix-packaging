@@ -21,13 +21,7 @@
 
 // internal interface
 // {67fed21a-70ef-4175-8f12-415b213ab6d2}
-#ifndef WIN32
 interface IAppxBlockMapInternal : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IAppxBlockMapInternal : public IUnknown
-#endif
 {
 public:
     virtual std::vector<std::string> GetFileNames() = 0;

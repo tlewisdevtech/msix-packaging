@@ -16,13 +16,7 @@
 #include "ComHelper.hpp"
 
 // {44d2a7a8-a165-4a6e-a56f-c7c24de7505c}
-#ifndef WIN32
 interface IStreamInternal : public IUnknown
-#else
-#include "Unknwn.h"
-#include "Objidl.h"
-class IStreamInternal : public IUnknown
-#endif
 {
 public:
     virtual std::uint64_t GetSizeOnZip() = 0;
