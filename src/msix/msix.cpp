@@ -39,7 +39,7 @@ static void finalizer(void) {
 
 #endif
 
-LPVOID STDMETHODCALLTYPE InternalAllocate(SIZE_T cb)  { return std::malloc(cb); }
+LPVOID STDMETHODCALLTYPE InternalAllocate(size_t cb)  { return std::malloc(cb); }
 void STDMETHODCALLTYPE InternalFree(LPVOID pv)        { std::free(pv); }
 
 

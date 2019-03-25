@@ -273,7 +273,7 @@ int ParseAndRun(std::vector<Command>& commands, int argc, char* argv[])
     return -1; // should never end up here.
 }
 
-LPVOID STDMETHODCALLTYPE MyAllocate(SIZE_T cb)  { return std::malloc(cb); }
+LPVOID STDMETHODCALLTYPE MyAllocate(size_t cb)  { return std::malloc(cb); }
 
 class Text
 {

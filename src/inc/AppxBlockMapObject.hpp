@@ -9,9 +9,9 @@
 #include <vector>
 #include <iterator>
 
+#include "AppxPackaging.hpp"
 #include "StreamBase.hpp"
 #include "VerifierObject.hpp"
-#include "AppxPackaging.hpp"
 #include "ComHelper.hpp"
 #include "UnicodeConversion.hpp"
 #include "AppxFactory.hpp"

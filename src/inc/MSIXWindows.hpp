@@ -142,11 +142,6 @@
     typedef int BOOL;
     #endif
 
-    #ifndef _SIZE_T_DEFINED
-    #define _SIZE_T_DEFINED
-    typedef size_t SIZE_T;
-    #endif
-
     #ifndef _LPVOID_DEFINED
     #define _LPVOID_DEFINED
     typedef void* LPVOID;

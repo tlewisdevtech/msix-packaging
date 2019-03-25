@@ -39,6 +39,6 @@ cd .vs
 # clean up any old builds of msix modules
 find . -depth -name *msix* | xargs -0 -r rm -rf
 
-echo "cmake -DCMAKE_BUILD_TYPE="$build "-DSKIP_BUNDLES="$bundle "-DCMAKE_TOOLCHAIN_FILE=../cmake/linux.cmake -DLINUX=on .."
-cmake -DCMAKE_BUILD_TYPE=$build -DSKIP_BUNDLES=$bundle -DCMAKE_TOOLCHAIN_FILE=../cmake/linux.cmake -DLINUX=on ..
+echo "cmake -DCMAKE_BUILD_TYPE="$build "-DSKIP_BUNDLES="$bundle "-DLINUX=on .."
+cmake -DCMAKE_BUILD_TYPE=$build -DSKIP_BUNDLES=$bundle -DLINUX=on ..
 make

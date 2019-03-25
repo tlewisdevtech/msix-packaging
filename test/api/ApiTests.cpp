@@ -24,7 +24,7 @@
 
 namespace MsixApiTest {
 
-LPVOID STDMETHODCALLTYPE MyAllocate(SIZE_T cb)  { return std::malloc(cb); }
+LPVOID STDMETHODCALLTYPE MyAllocate(size_t cb)  { return std::malloc(cb); }
 void   STDMETHODCALLTYPE MyFree(LPVOID pv)      { return std::free(pv);   }
 
 std::string utf16_to_utf8(const std::wstring& utf16string)

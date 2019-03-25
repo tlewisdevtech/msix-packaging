@@ -4,7 +4,8 @@
 //
 
 /* File based on the header created by MIDL compiler version 8.01.0622 of AppxPackaging.idl */
-#pragma once
+#ifndef __appxwindows_hpp__
+#define __appxwindows_hpp__
 
 #include "MSIXWindows.hpp"
 
@@ -1028,7 +1029,7 @@ MSIX_INTERFACE(IMsixApplicabilityLanguagesEnumerator,0xbfc4655a,0xbe7a,0x456a,0x
 
 #ifdef __cplusplus
 extern "C" {
-#endif __cplusplus
+#endif
 
 #ifndef __IMsixDocumentElement_INTERFACE_DEFINED__
 #define __IMsixDocumentElement_INTERFACE_DEFINED__
@@ -1168,7 +1169,7 @@ MSIX_INTERFACE(IAppxManifestQualifiedResourceUtf8,0x2fac530d,0x87e4,0x4dd5,0x99,
 MSIX_INTERFACE(IAppxManifestResourcesEnumeratorUtf8,0x194cfd4a,0x55db,0x4832,0xb1,0xaf,0x0d,0x68,0x05,0xa4,0x53,0x2a);
 MSIX_INTERFACE(IAppxManifestTargetDeviceFamilyUtf8,0x70adc4fb,0x33f5,0x4ed3,0xaa,0xaf,0xe5,0xad,0x74,0x99,0x16,0x69);
 MSIX_INTERFACE(IAppxPackageReaderUtf8,0x842ffe95,0xcf7a,0x4707,0x97,0x3a,0x0a,0x2e,0x9f,0xfc,0x3a,0x85);
-    
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1460,7 +1461,7 @@ MSIX_API HRESULT STDMETHODCALLTYPE UnpackBundleFromStream(
 
 // A call to called CoCreateAppxFactory is required before start using the factory on non-windows platforms specifying
 // their allocator/de-allocator pair of preference. Failure to do this will result on E_UNEXPECTED.
-typedef LPVOID STDMETHODCALLTYPE COTASKMEMALLOC(SIZE_T cb);
+typedef LPVOID STDMETHODCALLTYPE COTASKMEMALLOC(size_t cb);
 typedef void STDMETHODCALLTYPE COTASKMEMFREE(LPVOID pv);
 
 MSIX_API HRESULT STDMETHODCALLTYPE GetLogTextUTF8(COTASKMEMALLOC* memalloc, char** logText) noexcept;
@@ -1498,3 +1499,5 @@ MSIX_API HRESULT STDMETHODCALLTYPE CreateStreamOnFileUTF16(
     LPCWSTR utf16File,
     bool forRead,
     IStream** stream) noexcept;
+
+#endif //__appxpackaging_hpp__

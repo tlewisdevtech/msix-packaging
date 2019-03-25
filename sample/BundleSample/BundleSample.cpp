@@ -47,7 +47,7 @@ protected:
 };
 
 // Or you can use what-ever allocator/deallocator is best for your platform...
-LPVOID STDMETHODCALLTYPE MyAllocate(SIZE_T cb)  { return std::malloc(cb); }
+LPVOID STDMETHODCALLTYPE MyAllocate(size_t cb)  { return std::malloc(cb); }
 void STDMETHODCALLTYPE MyFree(LPVOID pv)        { std::free(pv); }
 
 // Helper class to free string buffers obtained from the packaging APIs.

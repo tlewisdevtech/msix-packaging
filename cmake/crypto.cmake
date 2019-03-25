@@ -9,7 +9,7 @@ set( TARGET_INCLUDE_DIRS ${OpenSLL_INCLUDE_PATH} )
 set( TARGET_INCLUDE_DIRS_PRIVATE "${TARGET_SOURCE_DIR_TRUE}" "${TARGET_SOURCE_DIR_TRUE}/asn1" "${TARGET_SOURCE_DIR_TRUE}/evp" "${TARGET_SOURCE_DIR_TRUE}/modes")
 set( TARGET_DEFINES "OPENSSL_THREADS" )
 set( TARGET_DEFINES_PRIVATE "${OpenSSL_COMPILER_DEFINES}" )
-set( TARGET_COMPILE_FLAGS -fno-rtti -fno-stack-protector -O1 -fno-unwind-tables -fno-asynchronous-unwind-tables
+set( TARGET_COMPILE_FLAGS -fno-stack-protector -O1 -fno-unwind-tables -fno-asynchronous-unwind-tables
     -fno-math-errno -fno-unroll-loops -fmerge-all-constants)
 set( TARGET_COMPILE_FLAGS_PRIVATE -ffunction-sections -fdata-sections)
 set( TARGET_LINK "" )
