@@ -36,7 +36,7 @@ namespace ClickOnceWrapper
                 string queryString = ApplicationDeployment.CurrentDeployment.ActivationUri.Query;
                 col = HttpUtility.ParseQueryString(queryString);
 
-                string decode = HttpUtility.UrlDecode(col.ToString());
+                string decode = HttpUtility.UrlDecode(col.Get(0).ToString());
 
                 System.Diagnostics.ProcessStartInfo processInfo;
                 if (IsRS3OrAbove())
